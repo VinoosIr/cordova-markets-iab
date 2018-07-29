@@ -2,14 +2,14 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordova-markets-iab"
-    version="1.1.1">
+    version="1.2.0">
     <name>Cordova Markets IAB Plugin</name>
     <description>All Persian Markets IAB for Cordova</description>
     <author>Milad Mohammadi Rezagah</author>
     <license>Apache 2.0</license>
-    <keywords>cordova,plugin,iap,markets,iab</keywords>
-    <repo>https://github.com/mdplugins/cordova-markets-iab</repo>
-    <issue>https://github.com/mdplugins/cordova-markets-iab/issues</issue>	
+    <keywords>cordova,plugin,iap,markets,iab,vinoos</keywords>
+    <repo>https://github.com/vinoosir/cordova-markets-iab</repo>
+    <issue>https://github.com/vinoosir/cordova-markets-iab/issues</issue>	
 	<engines>
 	    <engine name="cordova" version=">=3.0.0" />
 	</engines>

@@ -1,6 +1,6 @@
 {
   "name": "cordova-markets-iab",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Cordova Markets IAB Plugin",
   "cordova": {
     "id": "cordova-markets-iab",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mdplugins/cordova-markets-iab.git"
+    "url": "git+https://github.com/vinoosir/cordova-markets-iab.git"
   },
   "keywords": [
     "bazaar",
@@ -20,6 +20,7 @@
     "cando",
     "plugin",
     "iab",
+    "vinoos",
     "ecosystem:cordova",
     "cordova-android"
   ],
@@ -32,7 +33,7 @@
   "author": "Milad Mohammadi Rezagah",
   "license": "Apache 2.0",
   "bugs": {
-    "url": "https://github.com/mdplugins/cordova-markets-iab/issues"
+    "url": "https://github.com/vinoosir/cordova-markets-iab/issues"
   },
-  "homepage": "https://github.com/mdplugins/cordova-markets-iab#readme"
+  "homepage": "https://github.com/vinoosir/cordova-markets-iab#readme"
 }
