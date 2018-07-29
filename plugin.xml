@@ -2,8 +2,8 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordova-markets-iab"
-    version="1.2.0">
-    <name>Cordova Markets IAB Plugin</name>
+    version="1.2.1">
+    <name>Cordova-Markets-IAB</name>
     <description>All Persian Markets IAB for Cordova</description>
     <author>Milad Mohammadi Rezagah</author>
     <license>Apache 2.0</license>
