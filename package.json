@@ -1,6 +1,6 @@
 {
   "name": "cordova-markets-iab",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "description": "Cordova Markets IAB Plugin",
   "cordova": {
     "id": "cordova-markets-iab",

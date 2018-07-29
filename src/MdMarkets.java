@@ -4,20 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaInterface;
+import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.CordovaWebView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.apache.cordova.CordovaInterface;
-import org.apache.cordova.CordovaPlugin;
-import org.apache.cordova.CallbackContext;
-import org.apache.cordova.CordovaWebView;
-
-import md.markets.IabHelper.OnConsumeFinishedListener;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+import md.markets.IabHelper.OnConsumeFinishedListener;
 
 public class MdMarkets extends CordovaPlugin {
 
@@ -264,32 +263,37 @@ public class MdMarkets extends CordovaPlugin {
             callbackContext.error(makeError("Billing is not initialized", BILLING_NOT_INITIALIZED));
             return false;
         }
-        iabHelper.queryInventoryAsync(true, moreSkus, new IabHelper.QueryInventoryFinishedListener() {
-            public void onQueryInventoryFinished(IabResult result, Inventory inventory) {
-                if (result.isFailure()) {
-                    callbackContext.error("Error retrieving SKU details");
-                    return;
-                }
-                JSONArray response = new JSONArray();
-                try {
-                    for (String sku: moreSkus) {
-                        SkuDetails skuDetails = inventory.getSkuDetails(sku);
-                        if (skuDetails != null) {
-                            JSONObject detailsJson = new JSONObject();
-                            detailsJson.put("productId", skuDetails.getSku());
-                            detailsJson.put("title", skuDetails.getTitle());
-                            detailsJson.put("description", skuDetails.getDescription());
-                            detailsJson.put("price", skuDetails.getPrice());
-                            detailsJson.put("type", skuDetails.getType());
-                            response.put(detailsJson);
-                        }
-                    }
-                } catch (JSONException e) {
-                    callbackContext.error(e.getMessage());
-                }
-                callbackContext.success(response);
-            }
-        });
+        cordova.getActivity().runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				iabHelper.queryInventoryAsync(true, moreSkus, new IabHelper.QueryInventoryFinishedListener() {
+		            public void onQueryInventoryFinished(IabResult result, Inventory inventory) {
+		                if (result.isFailure()) {
+		                    callbackContext.error("Error retrieving SKU details");
+		                    return;
+		                }
+		                JSONArray response = new JSONArray();
+		                try {
+		                    for (String sku: moreSkus) {
+		                        SkuDetails skuDetails = inventory.getSkuDetails(sku);
+		                        if (skuDetails != null) {
+		                            JSONObject detailsJson = new JSONObject();
+		                            detailsJson.put("productId", skuDetails.getSku());
+		                            detailsJson.put("title", skuDetails.getTitle());
+		                            detailsJson.put("description", skuDetails.getDescription());
+		                            detailsJson.put("price", skuDetails.getPrice());
+		                            detailsJson.put("type", skuDetails.getType());
+		                            response.put(detailsJson);
+		                        }
+		                    }
+		                } catch (JSONException e) {
+		                    callbackContext.error(e.getMessage());
+		                }
+		                callbackContext.success(response);
+		            }
+		        });
+			}
+		});
         return true;
     }
 
